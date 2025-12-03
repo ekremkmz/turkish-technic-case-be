@@ -15,8 +15,8 @@ public abstract class BaseCrudController<R, E, ID, C, U> {
         return ResponseEntity.ok(getCrudService().create(createDto));
     }
 
-    @GetMapping("/{id}")
-    ResponseEntity<R> read(@PathVariable(name = "id") ID id) {
+    @GetMapping
+    ResponseEntity<R> read(@RequestParam(name = "id") ID id) {
         return ResponseEntity.ok(getCrudService().read(id));
     }
 

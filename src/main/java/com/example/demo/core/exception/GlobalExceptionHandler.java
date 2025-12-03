@@ -14,6 +14,18 @@ public class GlobalExceptionHandler {
                 .body(new ErrorResponse("Action suspended due to the violation of data integrity."));
     }
 
+    @ExceptionHandler({EntityNotExistException.class})
+    ResponseEntity<Object> handleEntityNotExistException(EntityNotExistException e) {
+        return ResponseEntity.internalServerError()
+                .body(new ErrorResponse(e.getMessage()));
+    }
+
+    @ExceptionHandler({SameLocationException.class})
+    ResponseEntity<Object> handleSameLocationException(SameLocationException e) {
+        return ResponseEntity.internalServerError()
+                .body(new ErrorResponse(e.getMessage()));
+    }
+
     private record ErrorResponse(String message) {
     }
 }
