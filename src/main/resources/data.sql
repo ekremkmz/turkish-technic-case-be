@@ -1,21 +1,18 @@
 -- locations
 
-insert into LOCATION values ('SAW','Sabiha Gökçen Havalimanı','Türkiye','İstanbul');
+insert into LOCATION values ('SAW','Sabiha Gökçen Uluslararası Havalimanı','Türkiye','İstanbul');
 insert into LOCATION values ('IST','İstanbul Havalimanı','Türkiye','İstanbul');
-insert into LOCATION values ('LON','Londra Havaalanı','England','London');
-insert into LOCATION values ('LND','Londra Şehir Meydanı','England','London');
+insert into LOCATION values ('LCY','London City Airport','United Kingdom','London');
+insert into LOCATION values ('LON','London Metropolitan Area','United Kingdom','London');
 
 insert into TRANSPORTATION values (NEXT VALUE FOR SEQ_TRANSPORTATION, 'BUS', 'SAW', 'IST');
-
-insert into TRANSPORTATION values (NEXT VALUE FOR SEQ_TRANSPORTATION, 'FLIGHT', 'IST', 'LON');
-
-insert into TRANSPORTATION values (NEXT VALUE FOR SEQ_TRANSPORTATION, 'FLIGHT', 'SAW', 'LON');
-
-insert into TRANSPORTATION values (NEXT VALUE FOR SEQ_TRANSPORTATION, 'UBER', 'LON', 'LND');
+insert into TRANSPORTATION values (NEXT VALUE FOR SEQ_TRANSPORTATION, 'FLIGHT', 'IST', 'LCY');
+insert into TRANSPORTATION values (NEXT VALUE FOR SEQ_TRANSPORTATION, 'FLIGHT', 'SAW', 'LCY');
+insert into TRANSPORTATION values (NEXT VALUE FOR SEQ_TRANSPORTATION, 'UBER', 'LCY', 'LON');
 
 
--- SAW ->IST ->LON->LND
--- SAW ->LON->LND
+-- SAW ->IST ->LCY->LON
+-- SAW ->LCY->LON
 
 insert into TRANSPORTATION_SCHEDULE values (NEXT VALUE FOR SEQ_TRANSPORTATION_SCHEDULE, 1, 1);
 insert into TRANSPORTATION_SCHEDULE values (NEXT VALUE FOR SEQ_TRANSPORTATION_SCHEDULE, 2, 1);
@@ -23,17 +20,17 @@ insert into TRANSPORTATION_SCHEDULE values (NEXT VALUE FOR SEQ_TRANSPORTATION_SC
 insert into TRANSPORTATION_SCHEDULE values (NEXT VALUE FOR SEQ_TRANSPORTATION_SCHEDULE, 4, 1);
 
 
--- SAW ->LON->LND
+-- SAW ->LCY->LON
 insert into TRANSPORTATION_SCHEDULE values (NEXT VALUE FOR SEQ_TRANSPORTATION_SCHEDULE, 2, 2);
 insert into TRANSPORTATION_SCHEDULE values (NEXT VALUE FOR SEQ_TRANSPORTATION_SCHEDULE, 3, 2);
 insert into TRANSPORTATION_SCHEDULE values (NEXT VALUE FOR SEQ_TRANSPORTATION_SCHEDULE, 4, 2);
 
--- SAW ->LON->LND
+-- SAW ->LCY->LON
 insert into TRANSPORTATION_SCHEDULE values (NEXT VALUE FOR SEQ_TRANSPORTATION_SCHEDULE, 1, 3);
 insert into TRANSPORTATION_SCHEDULE values (NEXT VALUE FOR SEQ_TRANSPORTATION_SCHEDULE, 3, 3);
 insert into TRANSPORTATION_SCHEDULE values (NEXT VALUE FOR SEQ_TRANSPORTATION_SCHEDULE, 4, 3);
 
--- SAW ->IST ->LON->LND
+-- SAW ->IST ->LCY->LON
 insert into TRANSPORTATION_SCHEDULE values (NEXT VALUE FOR SEQ_TRANSPORTATION_SCHEDULE, 1, 4);
 insert into TRANSPORTATION_SCHEDULE values (NEXT VALUE FOR SEQ_TRANSPORTATION_SCHEDULE, 2, 4);
 insert into TRANSPORTATION_SCHEDULE values (NEXT VALUE FOR SEQ_TRANSPORTATION_SCHEDULE, 4, 4);
