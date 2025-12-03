@@ -8,7 +8,6 @@ import jakarta.validation.constraints.Size;
 public record CreateTransportationDto(
 
         @NotNull(message = "type field is required.")
-        @Size(max = 10, message = "type field should be smaller than 10 characters.")
         TransportationType type,
 
         @NotBlank(message = "originLocationCode field is required.")

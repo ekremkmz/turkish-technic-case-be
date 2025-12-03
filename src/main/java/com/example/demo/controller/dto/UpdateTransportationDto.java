@@ -11,7 +11,6 @@ public record UpdateTransportationDto(
         Long id,
 
         @NotNull(message = "type field is required.")
-        @Size(max = 10, message = "type field should be smaller than 10 characters.")
         TransportationType type,
 
         @NotBlank(message = "originLocationCode field is required.")
