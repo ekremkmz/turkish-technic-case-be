@@ -22,13 +22,13 @@ public class Transportation implements Serializable {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "TYPE")
+    @Column(name = "TYPE", length = 10)
     private TransportationType type;
 
-    @Column(name = "ORIGIN_LOCATION_CODE", insertable = false, updatable = false, nullable = false)
+    @Column(name = "ORIGIN_LOCATION_CODE", insertable = false, updatable = false, nullable = false, length = 10)
     private String originLocationCode;
 
-    @Column(name = "DESTINATION_LOCATION_CODE", insertable = false, updatable = false, nullable = false)
+    @Column(name = "DESTINATION_LOCATION_CODE", insertable = false, updatable = false, nullable = false, length = 10)
     private String destinationLocationCode;
 
     @ManyToOne(optional = false)

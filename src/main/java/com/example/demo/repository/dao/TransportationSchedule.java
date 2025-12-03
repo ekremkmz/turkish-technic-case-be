@@ -25,6 +25,6 @@ public class TransportationSchedule implements Serializable {
     private Transportation transportation;
 
     @Enumerated
-    @Column(name = "OPERATING_DAY")
+    @Column(name = "OPERATING_DAY", length = 1)
     private Day operatingDay;
 }

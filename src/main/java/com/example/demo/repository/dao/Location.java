@@ -16,16 +16,16 @@ import java.io.Serializable;
 public class Location implements Serializable {
 
     @Id
-    @Column(name = "CODE")
+    @Column(name = "CODE", length = 10)
     private String code;
 
-    @Column(name = "NAME")
+    @Column(name = "NAME", length = 50)
     private String name;
 
-    @Column(name = "COUNTRY")
+    @Column(name = "COUNTRY", length = 50)
     private String country;
 
-    @Column(name = "CITY")
+    @Column(name = "CITY", length = 50)
     private String city;
 
 }
