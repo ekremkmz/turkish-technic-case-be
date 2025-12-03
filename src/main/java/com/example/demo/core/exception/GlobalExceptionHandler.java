@@ -1,6 +1,7 @@
 package com.example.demo.core.exception;
 
 import com.example.demo.controller.response.ErrorResponse;
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
@@ -31,6 +32,12 @@ public class GlobalExceptionHandler {
     ResponseEntity<ErrorResponse> handleDuplicateKeyException(DuplicateKeyException e) {
         return ResponseEntity.internalServerError()
                 .body(new ErrorResponse("Action suspended due to the duplication of unique key."));
+    }
+
+    @ExceptionHandler({ConstraintViolationException.class})
+    ResponseEntity<ErrorResponse> handleConstraintViolationException(ConstraintViolationException e) {
+        return ResponseEntity.internalServerError()
+                .body(new ErrorResponse("Action suspended due to the violation of a constraint."));
     }
 
     @ExceptionHandler({DataIntegrityViolationException.class})
